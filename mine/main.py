@@ -17,9 +17,6 @@ From a folder input, you can get:
 # File Structure Related Imports
 import __future__
 
-__version__ = "1.01"
-__author__ = "John Fallot"
-
 import datetime
 import json
 import logging
