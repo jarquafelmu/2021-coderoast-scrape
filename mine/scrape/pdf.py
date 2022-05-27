@@ -1,3 +1,8 @@
+"""The PDFScrape class takes the provided string from a prior list
+    comprehension of PDF files in a directory. From each pdf file, it parses the document
+    and returns metrics about its composition and relevance.
+    """
+
 # File Structure Related Imports
 import __future__
 import re
@@ -18,7 +23,14 @@ class PDFScrape:
     and returns metrics about its composition and relevance.
     """
 
-    def download(self, search_text: str) -> dict:
+        """scrapes the pdf
+
+        Args:
+            search_text (str): _description_
+
+        Returns:
+            ScrapeResult: _description_
+        """
         self.search_text = search_text
         self.preprints = []
         with pdfplumber.open(self.search_text) as self.study:
