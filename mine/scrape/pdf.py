@@ -16,7 +16,7 @@ from nltk import FreqDist
 from nltk.corpus import names, stopwords
 from nltk.tokenize import word_tokenize
 
-from mine.scrape.scraper import ScrapeResult
+from scrape.scraper import ScrapeResult
 
 
 TARGET_WORDS = [
