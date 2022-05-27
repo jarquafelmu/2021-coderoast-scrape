@@ -14,30 +14,7 @@ From a folder input, you can get:
     - a .csv file
 """
 
-# ==============================================
-#    SPECIAL THANKS
-#
-#    Michele Cotrufo
-#    Nathan Lippi
-#    Jon Watson Rooney
-#    Colin Meret
-#    ArjanCodes
-#    James Murphy
-#    Micael Jarniac
-#
-#    ----------------Maintainer----------------
-#    John Fallot
-#
-#    ----------------License----------------
-#    The MIT License [https://opensource.org/licenses/MIT]
-#    Copyright (c) 2021 John Fallot
-# ==============================================
-
-# ==============================================
-#      IMPORTS
-# ==============================================
-
-## File Structure Related Imports
+# File Structure Related Imports
 import __future__
 
 __version__ = "1.01"
