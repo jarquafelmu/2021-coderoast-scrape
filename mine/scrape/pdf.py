@@ -16,6 +16,8 @@ from nltk import FreqDist
 from nltk.corpus import names, stopwords
 from nltk.tokenize import word_tokenize
 
+from scraper import ScrapeResult
+
 
 class PDFScrape:
     """The PDFScrape class takes the provided string from a prior list
@@ -23,6 +25,7 @@ class PDFScrape:
     and returns metrics about its composition and relevance.
     """
 
+    def scrape(self, search_text: str) -> ScrapeResult:
         """scrapes the pdf
 
         Args:
@@ -58,7 +61,13 @@ class PDFScrape:
             # The ensuing manuscripts are stripped of lingering whitespace and non-alphanumeric characters.
             self.all_words = self.get_tokens()
             self.research_word_overlap = self.get_research_words()
-            return self.get_data_entry()
+            return ScrapeResult(
+                DOI=self.get_doi(),
+                wordscore=self.get_wordscore(),
+                frequency=FreqDist(self.all_words).most_common(5),
+                study_design=FreqDist(
+                    self.research_word_overlap).most_common(3)
+            )
 
     def get_tokens(self) -> list:
         """Takes a lowercase string, now removed of its non-alphanumeric characters.
@@ -165,14 +174,3 @@ class PDFScrape:
         self.doi = self.getting_doi[7:-4]
         self.doi = self.doi[:7] + "/" + self.doi[7:]
         return self.doi
-
-    def get_data_entry(self) -> dict:
-        """Returns a dictionary entry. Ideally, this will someday work through a DataEntry class."""
-        self.data = {
-            "DOI": self.get_doi(),
-            "wordscore": self.get_wordscore(),
-            "frequency": FreqDist(self.all_words).most_common(5),
-            "study_design": FreqDist(self.research_word_overlap).most_common(3),
-        }
-
-        return self.data
