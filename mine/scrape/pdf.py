@@ -57,6 +57,32 @@ BYCATCH_WORDS = [
     "care",
     "mindfulness",
 ]
+
+RESEARCH_WORDS = [
+    "big data",
+    "data",
+    "analytics",
+    "randomized controlled trial",
+    "RCT",
+    "moderation",
+    "community",
+    "social media",
+    "conversational",
+    "control",
+    "randomized",
+    "systemic",
+    "analysis",
+    "thematic",
+    "review",
+    "study",
+    "case series",
+    "case report",
+    "double blind",
+    "ecological",
+    "survey",
+]
+
+
 class PDFScrape:
     """The PDFScrape class takes the provided string from a prior list
     comprehension of PDF files in a directory. From each pdf file, it parses the document
@@ -138,30 +164,8 @@ class PDFScrape:
 
     def get_research_words(self):
         """Checks for words that correspond to specific experimental designs."""
-        self.research_words = [
-            "big data",
-            "data",
-            "analytics",
-            "randomized controlled trial",
-            "RCT",
-            "moderation",
-            "community",
-            "social media",
-            "conversational",
-            "control",
-            "randomized",
-            "systemic",
-            "analysis",
-            "thematic",
-            "review",
-            "study",
-            "case series",
-            "case report",
-            "double blind",
-            "ecological",
-            "survey",
-        ]
-        self.research_word_overlap = self._overlap(self.research_words)
+
+        self.research_word_overlap = self._overlap(RESEARCH_WORDS)
         return self.research_word_overlap
 
     def get_wordscore(self) -> int:
