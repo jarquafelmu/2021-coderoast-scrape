@@ -33,10 +33,10 @@ from typing import Optional
 
 import pandas as pd
 
-## Language Processing Related Imports
+# Language Processing Related Imports
 import pdfplumber
 
-## Scraping Related Imports
+# Scraping Related Imports
 import requests
 from bs4 import BeautifulSoup
 from nltk import FreqDist
