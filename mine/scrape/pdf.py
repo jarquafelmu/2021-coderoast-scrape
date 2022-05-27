@@ -41,6 +41,22 @@ TARGET_WORDS = [
     "boost",
 ]
 
+BYCATCH_WORDS = [
+    "psychology",
+    "pediatric",
+    "pediatry",
+    "autism",
+    "mental",
+    "medical",
+    "oxytocin",
+    "adolescence",
+    "infant",
+    "health",
+    "wellness",
+    "child",
+    "care",
+    "mindfulness",
+]
 class PDFScrape:
     """The PDFScrape class takes the provided string from a prior list
     comprehension of PDF files in a directory. From each pdf file, it parses the document
@@ -117,23 +133,7 @@ class PDFScrape:
         """Checks for words that often occur in conjunction with the
         user's primary query, but are deemed undesirable.
         """
-        self.bycatch_words = [
-            "psychology",
-            "pediatric",
-            "pediatry",
-            "autism",
-            "mental",
-            "medical",
-            "oxytocin",
-            "adolescence",
-            "infant",
-            "health",
-            "wellness",
-            "child",
-            "care",
-            "mindfulness",
-        ]
-        self.bycatch_word_overlap = self._overlap(self.bycatch_words)
+        self.bycatch_word_overlap = self._overlap(BYCATCH_WORDS)
         return self.bycatch_word_overlap
 
     def get_research_words(self):
