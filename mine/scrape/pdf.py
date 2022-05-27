@@ -19,6 +19,27 @@ from nltk.tokenize import word_tokenize
 from mine.scrape.scraper import ScrapeResult
 
 
+TARGET_WORDS = [
+    "prosocial",
+    "design",
+    "intervention",
+    "reddit",
+    "humane",
+    "social media",
+    "user experience",
+    "nudge",
+    "choice architecture",
+    "user interface",
+    "misinformation",
+    "disinformation",
+    "Trump",
+    "conspiracy",
+    "dysinformation",
+    "users",
+    "Thaler",
+    "Sunstein",
+    "boost",
+]
 
 class PDFScrape:
     """The PDFScrape class takes the provided string from a prior list
@@ -88,28 +109,8 @@ class PDFScrape:
 
     def get_target_words(self):
         """Checks for words that match the user's primary query."""
-        self.target_words = [
-            "prosocial",
-            "design",
-            "intervention",
-            "reddit",
-            "humane",
-            "social media",
-            "user experience",
-            "nudge",
-            "choice architecture",
-            "user interface",
-            "misinformation",
-            "disinformation",
-            "Trump",
-            "conspiracy",
-            "dysinformation",
-            "users",
-            "Thaler",
-            "Sunstein",
-            "boost",
-        ]
-        self.target_word_overlap = self._overlap(self.target_words)
+
+        self.target_word_overlap = self._overlap(TARGET_WORDS)
         return self.target_word_overlap
 
     def get_bycatch_words(self):
