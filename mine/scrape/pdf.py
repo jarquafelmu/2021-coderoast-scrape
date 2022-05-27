@@ -16,7 +16,8 @@ from nltk import FreqDist
 from nltk.corpus import names, stopwords
 from nltk.tokenize import word_tokenize
 
-from scraper import ScrapeResult
+from mine.scrape.scraper import ScrapeResult
+
 
 
 class PDFScrape:
